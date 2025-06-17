@@ -2,19 +2,17 @@
 #include <iostream>
 
 InputHandler::InputHandler()
-    : rotationX(0.0f), rotationY(0.0f), translationX(0.0f), translationY(0.0f), zoom(1.0f)
+    : rotationX(0.0f), rotationY(0.0f), translationX(0.0f), translationY(0.0f), zoom(1.0f),
+      firstUpdate(true), lastX(0), lastY(0)
 {
 }
 
 void InputHandler::update(int x, int y, bool leftButton, bool rightButton)
 {
-    // Usa variabili statiche per memorizzare la posizione precedente
-    static bool firstCall = true;
-    static int lastX = 0, lastY = 0;
-    if (firstCall) {
+    if (firstUpdate) {
         lastX = x;
         lastY = y;
-        firstCall = false;
+        firstUpdate = false;
     }
     
     int dx = x - lastX;

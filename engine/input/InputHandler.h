@@ -18,6 +18,10 @@ private:
     float rotationX, rotationY;
     float translationX, translationY;
     float zoom;
+
+    bool firstUpdate;
+    int lastX;
+    int lastY;
 };
 
 #endif // INPUT_HANDLER_H
